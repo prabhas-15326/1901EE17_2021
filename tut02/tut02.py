@@ -4,7 +4,7 @@ def get_memory_score(l):  # function returns the score from memory game
     i = 0
     # checks whether the list contains integers or not if not it exits
     for i in range(0, len(l)):
-        if type(l[i]) != int:
+        if type(l[i]) != int or l[i]<0 or l[i]>9:
             new_list.append(l[i])
     
     if(len(new_list)!=0):
