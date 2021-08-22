@@ -1,3 +1,4 @@
+print("My name is Prabhas. My roll number is 1901EE17")
 def get_memory_score(l):  # function returns the score from memory game
 
     new_list = []  # creates a new list
