@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 
 
 def Breaking_bad(season_padding, episode_padding):
@@ -26,9 +27,12 @@ def Breaking_bad(season_padding, episode_padding):
         os.rename(".\\wrong_srt\\Breaking Bad"+"\\" +
                   files[file], ".\\wrong_srt\\Breaking Bad"+"\\"+full_name)
         # storing the new renamed files in Breaking Bad
-        path = "corrected_srt\\Breaking bad"
-        with open(os.path.join(path, full_name), 'w') as fp:
-            pass
+        src=".\\wrong_srt\\Breaking Bad"+"\\"+full_name
+        if os.path.exists(src):
+            src=".\\wrong_srt\\Breaking Bad"+"\\"+full_name
+            path = "corrected_srt\\Breaking bad"
+            shutil.copy(src,path)
+        
 
 
 def Game_Of_Thrones(season_padding, episode_padding):
@@ -54,9 +58,11 @@ def Game_Of_Thrones(season_padding, episode_padding):
         os.rename(".\\wrong_srt\\Game of Thrones"+"\\" +
                   files[file], ".\\wrong_srt\\Game of Thrones"+"\\"+full_name)
         # storing the new renamed files in Game of Thrones
-        path = "corrected_srt\\Game of Thrones"
-        with open(os.path.join(path, full_name), 'w') as fp:
-            pass
+        src=".\\wrong_srt\\Game of Thrones"+"\\"+full_name
+        if os.path.exists(src):
+            src=".\\wrong_srt\\Game of Thrones"+"\\"+full_name
+            path = "corrected_srt\\Game of Thrones"
+            shutil.copy(src,path)
 
 
 def Lucifer(season_padding, episode_padding):
@@ -83,8 +89,11 @@ def Lucifer(season_padding, episode_padding):
                   files[file], ".\\wrong_srt\\Lucifer"+"\\"+full_name)
         path = "corrected_srt\\Lucifer"
         # storing the new renamed files in Lucifer
-        with open(os.path.join(path, full_name), 'w') as fp:
-            pass
+        src=".\\wrong_srt\\Lucifer"+"\\"+full_name
+        if os.path.exists(src):
+            src=".\\wrong_srt\\Lucifer"+"\\"+full_name
+            path = "corrected_srt\\Lucifer"
+            shutil.copy(src,path)
 
 
 def regex_renamer():
