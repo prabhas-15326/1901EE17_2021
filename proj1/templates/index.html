@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark_sheet Generator</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* CSS variables */
+
+        body {
+            background-color: antiquewhite;
+        }
+
+        /* section-1 */
+        /* marksheet at center */
+        .ms-primary {
+            display: block;
+            padding: 15px 73px;
+            height: 74px;
+            text-align: center;
+            font-size: 1.95rem;
+        }
+
+        .file-primary {
+            display: block;
+            font-size: 1.59rem;
+            padding: 11px 2px;
+            font-weight: bold;
+        }
+
+        .file-secondary {
+            display: flex;
+            flex-direction: row;
+            padding: 0px 26px
+        }
+
+        .button {
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 17px 26px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        /* section-2 */
+        .marks {
+            display: flex;
+            flex-direction: row;
+            padding: 16px 0px;
+        }
+
+        .generate {
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 17px 59px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            font-size: 16px;
+            margin: 12px 1px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="section-1">
+
+        <div class="ms-primary">
+            <h1>MarkSheet Generator</h1>
+        </div>
+
+        <h3 class="file-primary">Master.csv File</h3>
+        <form action="/Uploading_Files" method="post" enctype="multipart/form-data">
+            <div class="file-secondary">
+                <p>Click on the "choose File" button to Upload Master.csv file :</p>
+                <input type="file" id="myFile" name="master_roll">
+            </div>
+
+            <h3 class="file-primary">Responses.csv File</h3>
+
+            <div class="file-secondary">
+                <p>Click on the "choose File" button to Upload Responses.csv file :</p>
+                <input type="file" id="myFile" name="responses">
+            </div>
+
+            <button class="button">Upload Files</button>
+        </form>
+    </section>
+
+    <section id="section-2">
+        <form method="post" enctype="multipart/form-data">
+            <div class="marks">
+                <p>Enter marks for right answer :</p>
+                <input type="number" id="quantity" name="positive" min="-2" max="10">
+            </div>
+
+            <div class="marks">
+                <p>Enter marks for wrong answer :</p>
+                <input type="number" id="quantity" name="negative" min="-2" max="10">
+            </div>
+            
+            <div>
+                <button formaction="/Generating_markSheets" class="generate">Generate Roll Number wise Marksheet</button>
+                <button formaction="/Generating_ConciseSheet" class="generate">Generate Concise Marksheet</button>
+            </div>
+
+        </form>
+
+        <form action="/send_emails" method="post" enctype="multipart/form-data">
+            <button class="generate">Send Emails</button>
+        </form>
+        
+
+    </section>
+</body>
+
+</html>
